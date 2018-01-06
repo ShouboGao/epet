@@ -1,8 +1,6 @@
 <template>
   <div class="content">
-    <keep-alive>
-      <router-view></router-view>
-    </keep-alive>
+    <router-view></router-view>
     <div class="footernav">
       <ul>
         <li class="home">
@@ -75,6 +73,4 @@
     .myepet
       span
         background-position: -85px -122px
-
-
 </style>

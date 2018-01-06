@@ -4,7 +4,7 @@
       <div class="indexnavcon">
         <div class="headerbox float-div">
           <div class="main">
-            <div class="clearfix">
+            <div class="main-search">
               <div class="epet-search">
                 <div class="location">
                   <a href="https://wap.epet.com/place.html?pet_type=dog&amp;fw=0">
@@ -33,8 +33,7 @@
                         <span class="rela"><span>{{menu.menu_name}}</span><i></i></span>
                       </router-link>
                       <router-view></router-view>
-                      <!--<a href=""><span class="rela"><span>{{menu.menu_name}}</span><i></i></span></a>-->
-                    </li>
+                         </li>
                   </ul>
                 </div>
               </div>
@@ -70,7 +69,7 @@
             </p>
           </div>
           <a href="javascript:;" class="cartc-close" @click="close">
-            <img src="../common/images/close2.png">
+            <img src="../../common/images/close2.png">
           </a>
         </div>
       </div>
@@ -89,19 +88,19 @@
           {
             en_name: 'CAT',
             ch_name: '猫猫站',
-            logo: require('../common/images/change-cat.png'),
+            logo: require('../../common/images/change-cat.png'),
             color: '#e74186'
           },
           {
             en_name: 'DOG',
             ch_name: '狗狗站',
-            logo: require('../common/images/change-dog1.png'),
+            logo: require('../../common/images/change-dog1.png'),
             color: '#4e9a36'
           },
           {
             en_name: 'FISH',
             ch_name: '水族站',
-            logo: require('../common/images/change-fish.png'),
+            logo: require('../../common/images/change-fish.png'),
             color: '#039ddf'
           }
         ]
@@ -144,7 +143,6 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-
   .indexnavcon
     position relative
     z-index 99
@@ -153,7 +151,7 @@
     .main
       max-width: 640px;
       margin: auto;
-      .clearfix
+      .main-search
         padding: 5px 10px;
         .epet-search
           padding: 8px 0;
@@ -205,7 +203,7 @@
                 bottom: 0;
                 margin: auto 0;
                 background-position: 0 0;
-                background: url(../common/images/search.png) no-repeat;
+                background: url(../../common/images/search.png) no-repeat;
                 background-size: 11px auto;
 
           a
@@ -256,7 +254,7 @@
 
   .switchtype
     .go-dog
-      background: url(../common/images/godog.png) no-repeat;
+      background: url(../../common/images/godog.png) no-repeat;
       width: 41px;
       height: 46px;
       background-size: 80px auto;

@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <div class="content">
     <div class="xiazaiApp" v-show="flag">
       <div class="overflow">
         <span class="clsoebtn" @click="close">
@@ -22,8 +22,7 @@
         <div>
           <div class="banner_item">
             <a href="https://sale.epet.com/m/1706/newWelfare.html?pet_type=dog&amp;fw=0" class="pointer">
-              <img src="https://img2.epetbar.com/nowater/2017-12/18/09/60c354a5d94be9fd114523ee77259c73.gif"
-                   lazy="loaded">
+              <img src="https://img2.epetbar.com/nowater/2017-12/18/09/60c354a5d94be9fd114523ee77259c73.gif">
             </a>
           </div>
         </div>
@@ -69,11 +68,9 @@
       }
     },
     mounted() {
-      /*this.$nextTick(()=>{
-        new BScroll(this.$refs.scrollWrapper,{
-          scrollX:false
-        })
-      })*/
+      new BScroll(this.$refs.scrollWrapper, {
+        click: true
+      });
     },
     methods: {
       close () {
@@ -94,9 +91,8 @@
   }
 </script>
 <style lang="stylus" rel="stylesheet/stylus">
-  .home
+  .content
     height 100%
-    position relative
     .xiazaiApp
       max-width: 640px;
       margin: 0 auto;
@@ -128,6 +124,7 @@
             width: 100%;
             vertical-align: middle;
     .scrollWrapper
+      height 100%
       /*padding-bottom 46px*/
       .banner_item
         width 100%
