@@ -46,6 +46,19 @@
         <split></split>
         <minheader></minheader>
         <titearea></titearea>
+        <div class="wap-footer-bar">
+          <div class="footer">
+            <div class="ft">
+              <span class="bt" title="触屏版">触屏版</span>
+              <span><a href="https://wap.epet.com/app.html">手机客户端</a></span>
+              <span><a href="https://wap.epet.com/AboutEpet.html">关于我们</a></span>
+              <span><a href="https://wap.epet.com/faq.html">联系我们</a></span>
+            </div>
+            <div class="copyright">
+              © wap.epet.com 版权：重庆易宠科技有限公司
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -130,5 +143,24 @@
         width 100%
         img
           width 100%
+    .footer
+      margin: 1em 0 0;
+      background: #fff;
+      clear: both;
+      height 270px
+      .ft
+        font-size: 14px;
+        padding: 15px 0 5px;
+        text-align: center;
+        span
+          padding-right: 10px;
+        .bt
+          color: red;
+    .copyright
+      text-align: center;
+      margin: 5px 10px 0 10px;
+      padding-bottom: 75px;
+      font-size: 12px;
+
 </style>
 

@@ -1,19 +1,27 @@
 <template>
   <div class="appWrap">
     <router-view></router-view>
-    <div class="footernav" v-show="$route.meta.isTop">
+    <div class="footernav">
       <ul>
         <li class="home">
-          <span class="footericon" @click="change"><router-link to="/home"></router-link></span>
+          <span class="footericon" @click="change">
+            <router-link to="/home"></router-link>
+          </span>
         </li>
         <li class="classify">
-          <span class="footericon" @click="change"><router-link to="/classify"></router-link></span>
+          <span class="footericon" @click="change">
+            <router-link to="/classify"></router-link>
+          </span>
         </li>
         <li class="shopcart">
-          <span class="footericon" @click="change"><router-link to="/shopcart"></router-link></span>
+          <span class="footericon" @click="change">
+            <router-link to="/shopcart"></router-link>
+          </span>
         </li>
         <li class="myepet">
-          <span class="footericon" @click="change"><router-link to="/myepet"></router-link></span>
+          <span class="footericon" @click="change">
+            <router-link to="/myepet"></router-link>
+          </span>
         </li>
       </ul>
     </div>

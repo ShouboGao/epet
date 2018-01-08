@@ -1,31 +1,42 @@
 <template>
-  <div ref="bcontent">
-    <div class="brand-box">
-      <div class="brand-list" v-if="sort[2]">
-        <div>
-          <div class="recom" v-for="(brand,index) in sort[2].brands" :key="index">
-            <div class="title">
-              <span>{{brand.title}}</span>
-            </div>
-            <div class="list">
-              <ul>
-                <li v-for="(list,index) in brand.lists">
-                  <div class="block">
-                    <div>
-                      <img :src="list.logo">
-                    </div>
-                    <p class="name">{{list.name}}</p>
-                    <p class="address">{{list.address}}</p>
+  <div class="brand-box">
+    <div class="brand-list" v-if="sort[2]" ref="bcontent">
+      <div>
+        <div class="recom" v-for="(brand,index) in sort[2].brands" :key="index">
+          <div class="title">
+            <span>{{brand.title}}</span>
+          </div>
+          <div class="list">
+            <ul>
+              <li v-for="(list,index) in brand.lists">
+                <div class="block">
+                  <div>
+                    <img :src="list.logo">
                   </div>
-                </li>
-              </ul>
-            </div>
+                  <p class="name">{{list.name}}</p>
+                  <p class="address">{{list.address}}</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="list">
+            <ul>
+              <li v-for="(list,index) in brand.lists">
+                <div class="block">
+                  <div>
+                    <img :src="list.logo">
+                  </div>
+                  <p class="name">{{list.name}}</p>
+                  <p class="address">{{list.address}}</p>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
-        <!--右下角的全部-->
-        <div class="all"><span>全部</span></div>
       </div>
     </div>
+    <!--右下角的全部-->
+    <div class="all"><span>全部</span></div>
   </div>
 </template>
 
@@ -37,10 +48,10 @@
       return {}
     },
     mounted(){
-      this.$store.dispatch('reqsort');
       new Bscroll(this.$refs.bcontent, {
         click: true
       })
+      this.$store.dispatch('reqsort')
     },
     computed: {
       ...mapState(['sort'])
@@ -49,24 +60,11 @@
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  .all
-    width: 40px;
-    height: 40px;
-    right: 6px;
-    top: 520px;
-    position: fixed;
-    z-index: 10;
-    background: rgba(0, 0, 0, .4);
-    line-height: 40px;
-    border-radius: 50%;
-    font-size: 12px;
-    color: #fff;
-    text-align: center;
-
   .brand-list
     background: #f3f4f5;
+    height 575px
+    overflow hidden
     .recom
-      float left
       padding-bottom: 15px;
       margin-bottom: 10px;
       background: #fff;
@@ -118,4 +116,19 @@
                 font-size: 12px;
                 color: #999;
                 text-align: center;
+
+  .all
+    width: 40px;
+    height: 40px;
+    right: 6px;
+    top: 520px;
+    position: fixed;
+    z-index: 10;
+    background: rgba(0, 0, 0, .4);
+    line-height: 40px;
+    border-radius: 50%;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+
 </style>

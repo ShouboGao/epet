@@ -25,8 +25,7 @@ export default new VueRouter({
           path: '/home/cloth',
           component: cloth
         }
-      ],
-      meta:{isTop:true}
+      ]
     },
     {
       path: '/classify',
@@ -35,18 +34,15 @@ export default new VueRouter({
         {path: '/classify/sort', component: sort},
         {path: '/classify/brand', component: brand},
         {path: '/classify', redirect: '/classify/sort'},
-      ],
-      meta:{isTop:true}
+      ]
     },
     {
       path: '/shopcart',
-      component: shopcart,
-      meta:{isTop:false}
+      component: shopcart
     },
     {
       path: '/myepet',
-      component: myepet,
-      meta:{isTop:true}
+      component: myepet
     }
   ]
 })

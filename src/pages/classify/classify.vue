@@ -9,15 +9,15 @@
       </div>
       <img src="../../common/images/search.png" class="search">
     </header>
-    <router-view></router-view>
-
+      <router-view></router-view>
   </div>
+
 </template>
 
 <script>
+  export default {
 
-  export default {}
-
+  }
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
