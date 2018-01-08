@@ -9,7 +9,6 @@
       </div>
       <img src="../../common/images/search.png" class="search">
     </header>
-
     <router-view></router-view>
 
   </div>

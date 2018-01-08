@@ -1,7 +1,7 @@
 <template>
   <div class="appWrap">
     <router-view></router-view>
-    <div class="footernav">
+    <div class="footernav" v-show="$route.meta.isTop">
       <ul>
         <li class="home">
           <span class="footericon" @click="change"><router-link to="/home"></router-link></span>
@@ -25,7 +25,7 @@
     methods: {
       change (ev) {
         let footericons = document.querySelectorAll('.footericon');
-        for (var i = 0; i < footericons.length; i++) {
+        for (let i = 0; i < footericons.length; i++) {
           footericons[i].style.backgroundPositionX = '-85px';
           event.target.parentNode.style.backgroundPositionX = '0px';
         }

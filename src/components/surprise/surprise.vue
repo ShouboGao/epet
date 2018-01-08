@@ -1,118 +1,115 @@
 <template>
-  <div v-if="surprise.info" class="surprise">
-    <div class="supr-title">
-      <img :src="surprise.info.surprise_icon.image">
-      <p class="timing">
-        距本场结束
-        <count-down :endTime="`${endTimeout}`" :callback="cb" endText="已经结束了"></count-down>
-      </p>
-      <div class="more">
-        <img :src="surprise.info.right_image.image">
-      </div>
-    </div>
-    <div class="supr-cont" ref="wrapper">
-      <ul :style="{width: `${107*surprise.info.length}px`}">
-        <li v-for="(sale,index) in surprise.info" :key>
-          <a href="#">
-            <img :src="sale.image" alt="">
-            <p class="price">￥{{sale.sale_price}}</p>
-            <p class="savePrice">省￥{{sale.little_price}}</p>
+  <div class="surprise_day">
+    <div class="surprise">
+      <div class="surprise-tit " v-if="surprise.info">
+        <div class="fl titimg">
+          <img :src="surprise.info.surprise_icon.image">
+        </div>
+        <div class="fl ft13 ml10">{{surprise.info.title}}</div>
+        <countDown></countDown>
+        <div class="more">
+          <a href="">
+            <img :src="surprise.info.right_image.image">
           </a>
-        </li>
-      </ul>
+        </div>
+      </div>
+      <div class="surprise-pro">
+        <div class="swiper-container">
+          <div class="swiper-wrapper" v-if="surprise.info">
+            <div class="swiper-slide2" v-for="(good,index) in surprise.info.goods" :key="index">
+              <div class="pro-block">
+                <a href="">
+                  <div>
+                    <img :src="good.image.image">
+                  </div>
+                  <div class="cred ftc mt5">
+                    <span>¥</span>
+                    <span>{{good.sale_price}}</span>
+                  </div>
+                  <p class="c999">{{good.little_price}}</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-  import BScroll from 'better-scroll'
-  import coutnDown from '../count-down/count-down.vue'
   import {mapState} from 'vuex'
+  import countDown from '../count-down/countDown.vue'
   export default {
-    mounted () {
-      if (!this.surprise.info) {
-        return
-      }
-      this._initScroll()
+    mounted(){
+      this.$store.dispatch('reqsurprise');
     },
     computed: {
-      ...mapState(['surprise']),
-      endTimeout () {
-        // 模拟一个时间：当前时间 + 18个小时 - 随机的10个小时
-        return (
-          Date.parse(new Date()) +
-          (18 * 60 * 60 * 1000) -
-          (Math.floor(Math.random() * 1000 * 60 * 60 * 10))
-        )
-      }
-    },
-    methods: {
-      _initScroll () {
-        this.$nextTick(() => {
-          this.scroll = new BScroll(this.$refs.wrapper, {
-            click: true,
-            scrollX: true,
-            scrollY: false
-          })
-        })
-      },
-      cb () {
-      }
-    },
-    watch: {
-      surprise (oldval, newval) {
-        if (this.scroll) {
-          this.scroll.refresh()
-        } else {
-          this._initScroll()
-        }
-      }
+      ...mapState(['home', 'surprise'])
     },
     components: {
-      'count-down': coutnDown
+      countDown
     }
   }
+
 </script>
 
 <style lang="stylus" rel="stylesheet/stylus">
-  @import "../../common/stylus/mixins.styl"
-  .surprise
-    .supr-title
-      display flex
-      padding 10px
+  .surprise-tit
+    position: relative;
+    padding: 10px;
+    overflow: hidden !important;
+    .fl
+      float left
+    .titimg img
+      width 105px
+      height: 24px;
+      display: block;
+      vertical-align: middle;
+    .surprise-time.hide
+      display: none;
+    .ft13.ml10
+      margin-top: 4px;
+      font-size: 13px;
+      margin-left: 10px;
+    .more
+      position: absolute;
+      top: 2px;
+      right: -8px;
       img
-        height 24px
-        margin-left -20px
-      .timing
-        ft(12px)
-        p
-          display inline-block
-          span
-            border 1px solid #ccc
-            border-radius 2px
-      .more
-        flex auto
-        text-align right
-        img
-          height 50px
-          margin -15px -15px 0 0
-    .supr-cont
-      & > ul
-        ft(0px)
-        white-space nowrap
-        li
-          display inline-block
-          padding 0 7px
-          margin-right 10px
-          text-align center
-          ft(14px)
-          a
-            img
-              width 85px
-              height 85px
-            .price
-              c(#f00)
-            .savePrice
-              transform scale(0.9)
-              c(#999)
+        display: block;
+        margin: 0 0 0 auto;
+        width: 50%;
+  .surprise-pro
+    padding-left: 5px;
+    margin-bottom: 10px;
+    .swiper-container
+      width: 100%;
+      height: 100%;
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+      .swiper-wrapper
+        width: 100%;
+        height: 100%;
+        position: relative;
+        .swiper-slide2
+          width: 150px !important
+          margin-right: 10px;
+          .pro-block
+            margin: 0 .5em;
+            a
+              color: #333;
+              display: block;
+              .image
+                vertical-align: middle;
+                width: 100%;
+              .cred
+                color: red;
+                margin-top: 5px;
+                text-align: center;
+              .c999
+                color: #999;
+                font-size 14px
 </style>
